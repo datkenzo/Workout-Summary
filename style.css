@@ -1,0 +1,132 @@
+:root {
+  --color-page:        #000000;
+  --color-card:        #1c1c1c;
+  --color-stat:        #333333;
+  --color-stat-hover:  #3f3f3f;
+  --color-text:        #ffffff;
+  --color-text-muted:  #c9c9c9;
+  --color-accent:      #f05a28;
+  --color-accent-dark: #d94a1c;
+
+  --radius-card:   24px;
+  --radius-stat:   12px;
+  --radius-button: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  width: 100%;
+  max-width: 680px;
+  padding: 40px;
+  background: var(--color-card);
+  border-radius: var(--radius-card);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.card__subtitle {
+  margin: 8px 0 0;
+  font-size: 17px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Stats ---------- */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.stat {
+  flex: 1 1 140px;
+  padding: 20px;
+  background: var(--color-stat);
+  border-radius: var(--radius-stat);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.stat:hover {
+  background: var(--color-stat-hover);
+  transform: translateY(-1px);
+}
+
+.stat__label {
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.stat__value {
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* ---------- Button ---------- */
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: var(--radius-button);
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background: var(--color-accent-dark);
+}
+
+.button:focus-visible,
+.stat:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 520px) {
+  .card {
+    padding: 28px 24px;
+  }
+  .card__title {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat,
+  .button {
+    transition: none;
+  }
+}
