@@ -83,4 +83,30 @@ button:active { transform: scale(.985); }
 .form-message.is-error { color: var(--warning); }
 .form-message.is-success { color: var(--lime); }
 
+.recent-workouts { margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--line); }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.section-heading h2 { margin: 0; font-size: 1.1rem; letter-spacing: -0.02em; }
+.section-mark { width: 30px; height: 4px; border-radius: 99px; background: var(--lime); }
+.empty-workouts { margin: 18px 0 0; color: var(--muted); font-size: .92rem; }
+.workout-list { display: grid; gap: 11px; margin-top: 17px; }
+.workout-list:empty { display: none; }
+
+.recent-workout {
+  display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 12px; padding: 14px;
+  border: 1px solid var(--line); border-radius: 17px; background: rgba(4, 17, 32, 0.34);
+  animation: workout-enter .25s ease-out;
+}
+.recent-workout-icon {
+  display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px;
+  color: var(--navy); background: var(--lime); font-size: 1.35rem; font-weight: 900;
+}
+.recent-workout-title { margin: 0 0 4px; font-size: .92rem; font-weight: 850; }
+.recent-workout-details { margin: 0; color: var(--muted); font-size: .8rem; font-weight: 650; }
+.recent-workout-feeling { padding: 6px 9px; border-radius: 999px; color: var(--lime); background: rgba(204, 255, 66, .1); font-size: .75rem; font-weight: 850; }
+
+@keyframes workout-enter {
+  from { opacity: 0; transform: translateY(-7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (min-width: 600px) { .workout-card { padding: 40px 40px 32px; } }

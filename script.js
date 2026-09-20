@@ -2,10 +2,28 @@ const form = document.querySelector("#workout-form");
 const durationInput = document.querySelector("#duration");
 const caloriesInput = document.querySelector("#calories");
 const message = document.querySelector("#form-message");
+const workoutList = document.querySelector("#workout-list");
+const emptyWorkouts = document.querySelector("#empty-workouts");
 
 function showMessage(text, type) {
   message.textContent = text;
   message.className = `form-message is-${type}`;
+}
+
+function addWorkout({ duration, calories, feeling }) {
+  const workout = document.createElement("article");
+  workout.className = "recent-workout";
+  workout.innerHTML = `
+    <div class="recent-workout-icon" aria-hidden="true">↝</div>
+    <div>
+      <h3 class="recent-workout-title">Rowing workout</h3>
+      <p class="recent-workout-details">${duration} min · ${calories} kcal</p>
+    </div>
+    <span class="recent-workout-feeling">${feeling}</span>
+  `;
+
+  workoutList.prepend(workout);
+  emptyWorkouts.hidden = true;
 }
 
 form.addEventListener("submit", (event) => {
@@ -32,6 +50,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
+  addWorkout({ duration, calories, feeling: feeling.value });
   form.reset();
   showMessage("Workout saved 🎉", "success");
 });
