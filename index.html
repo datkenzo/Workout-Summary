@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Workout Summary Card</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Log Workout</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main class="app-shell">
+    <section class="workout-card" aria-labelledby="page-title">
+      <div class="workout-icon" aria-hidden="true">↝</div>
+      <p class="eyebrow">ROWING WORKOUT</p>
+      <h1 id="page-title">Quick Log<br />Workout</h1>
+      <p class="subtitle">Your session is complete. Add a few details to keep your momentum going.</p>
 
-  <div class="card">
-    <header class="card__header">
-      <h1 class="card__title">Great Job!</h1>
-      <p class="card__subtitle">You completed today's workout.</p>
-    </header>
+      <form id="workout-form" novalidate>
+        <div class="field">
+          <label for="duration">Duration</label>
+          <div class="input-wrap">
+            <input id="duration" name="duration" type="number" min="1" inputmode="numeric" placeholder="0" />
+            <span>min</span>
+          </div>
+        </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat__label">Score</div>
-        <div class="stat__value">92</div>
-      </div>
-      <div class="stat">
-        <div class="stat__label">Distance</div>
-        <div class="stat__value">5.2 km</div>
-      </div>
-      <div class="stat">
-        <div class="stat__label">Calories</div>
-        <div class="stat__value">320</div>
-      </div>
-    </div>
+        <div class="field">
+          <label for="calories">Calories burned</label>
+          <div class="input-wrap">
+            <input id="calories" name="calories" type="number" min="1" inputmode="numeric" placeholder="0" />
+            <span>kcal</span>
+          </div>
+        </div>
 
-    <button class="button" type="button">View Full Summary</button>
-  </div>
+        <fieldset class="feeling-field">
+          <legend>How did it feel?</legend>
+          <div class="feeling-options">
+            <label class="feeling-option"><input type="radio" name="feeling" value="Easy" /><span>Easy</span></label>
+            <label class="feeling-option"><input type="radio" name="feeling" value="Good" /><span>Good</span></label>
+            <label class="feeling-option"><input type="radio" name="feeling" value="Hard" /><span>Hard</span></label>
+          </div>
+        </fieldset>
 
+        <button type="submit">Save workout <span aria-hidden="true">→</span></button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
